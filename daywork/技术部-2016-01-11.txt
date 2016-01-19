@@ -24,7 +24,13 @@
 2.客服修改     ----暂缺图片
 3.公告修改     ----完成
 4.帮助修改PC端  
-
+5.admin    上下架修改    
+6.mobile   绑定限制修改  
+7.admin    增加权限表查询页
+	   增加AdminPermissionController.java
+	   增加adminPermission-modal.ftl
+	   增加adminPermission.ftl
+8.pc       日期截取修改
 
 
 
