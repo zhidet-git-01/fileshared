@@ -1,0 +1,6 @@
+com\calanger\yhzj\vo\UserVO.class
+com\calanger\yhzj\bo\UserBO.class
+com\calanger\yhzj\model\User.class
+com\calanger\yhzj\bo\impl\DefaultUserBO.class
+com\calanger\yhzj\dao\UserDAO.class
+com\calanger\yhzj\dao\impl\MyBatisUserDAO.class

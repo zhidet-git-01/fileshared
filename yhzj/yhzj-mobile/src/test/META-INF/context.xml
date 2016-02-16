@@ -1,0 +1,12 @@
+<Context>
+  <Resource name="jdbc/yhzj"
+            auth="Container"
+            type="javax.sql.DataSource"
+            driverClassName="com.mysql.jdbc.Driver"
+            url="jdbc:mysql://121.40.97.2:3306/yhzj?useUnicode=true&amp;characterEncoding=UTF-8"
+            username="yhzj"
+            password="yhzj20051225"
+            maxActive="100"
+            maxIdle="30"
+            maxWait="10000" />
+</Context>

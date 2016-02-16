@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="userDAO">
+  <resultMap id="user" type="com.calanger.yhzj.model.User">
+    <result property="id" column="id" />
+    <result property="creattime" column="creattime" />
+    <result property="name" column="name" />
+    <result property="phone" column="phone" />
+    <result property="email" column="email" />
+    <result property="passwd" column="passwd" />
+    <result property="summoney" column="summoney" />
+    <result property="fetchmoney" column="fetchmoney" />
+    <result property="coldmoney" column="coldmoney" />
+    <result property="usablemoney" column="usablemoney" />
+    <result property="waitactivemoney" column="waitactivemoney" />
+    <result property="returnmoney" column="returnmoney" />
+    <result property="registermoney" column="registermoney" />
+    <result property="investmoney" column="investmoney" />
+    <result property="rapnum" column="rapnum" />
+    <result property="level" column="level" />
+    <result property="logintime" column="logintime" />
+    <result property="headimage" column="headImage" />
+    <result property="loginnum" column="loginnum" />
+    <result property="inviterid" column="inviterid" />
+    <result property="channelid" column="channelid" />
+    <result property="status" column="status" />
+    <result property="remark" column="remark" />
+  </resultMap>
+
+  <sql id="sql_insert_column_list">
+    <trim prefix="" prefixOverrides=",">
+      <if test="entity.id != null">,id</if>
+      <if test="entity.creattime != null and entity.creattime != ''">,creattime</if>
+      <if test="entity.name != null and entity.name != ''">,name</if>
+      <if test="entity.phone != null and entity.phone != ''">,phone</if>
+      <if test="entity.email != null and entity.email != ''">,email</if>
+      <if test="entity.passwd != null and entity.passwd != ''">,passwd</if>
+      <if test="entity.summoney != null and entity.summoney != ''">,summoney</if>
+      <if test="entity.fetchmoney != null and entity.fetchmoney != ''">,fetchmoney</if>
+      <if test="entity.coldmoney != null and entity.coldmoney != ''">,coldmoney</if>
+      <if test="entity.usablemoney != null and entity.usablemoney != ''">,usablemoney</if>
+      <if test="entity.waitactivemoney != null and entity.waitactivemoney != ''">,waitactivemoney</if>
+      <if test="entity.returnmoney != null and entity.returnmoney != ''">,returnmoney</if>
+      <if test="entity.registermoney != null and entity.registermoney != ''">,registermoney</if>
+      <if test="entity.investmoney != null and entity.investmoney != ''">,investmoney</if>
+      <if test="entity.rapnum != null and entity.rapnum != ''">,rapnum</if>
+      <if test="entity.level != null">,level</if>
+      <if test="entity.logintime != null and entity.logintime != ''">,logintime</if>
+      <if test="entity.headimage != null and entity.headimage != ''">,headImage</if>
+      <if test="entity.loginnum != null">,loginnum</if>
+      <if test="entity.inviterid != null">,inviterid</if>
+      <if test="entity.channelid != null">,channelid</if>
+      <if test="entity.status != null">,status</if>
+      <if test="entity.remark != null and entity.remark != ''">,remark</if>
+    </trim>
+  </sql>
+
+  <sql id="sql_insert_property_list">
+    <trim prefix="" prefixOverrides=",">
+      <if test="entity.id != null">,#{entity.id}</if>
+      <if test="entity.creattime != null and entity.creattime != ''">,#{entity.creattime}</if>
+      <if test="entity.name != null and entity.name != ''">,#{entity.name}</if>
+      <if test="entity.phone != null and entity.phone != ''">,#{entity.phone}</if>
+      <if test="entity.email != null and entity.email != ''">,#{entity.email}</if>
+      <if test="entity.passwd != null and entity.passwd != ''">,#{entity.passwd}</if>
+      <if test="entity.summoney != null and entity.summoney != ''">,#{entity.summoney}</if>
+      <if test="entity.fetchmoney != null and entity.fetchmoney != ''">,#{entity.fetchmoney}</if>
+      <if test="entity.coldmoney != null and entity.coldmoney != ''">,#{entity.coldmoney}</if>
+      <if test="entity.usablemoney != null and entity.usablemoney != ''">,#{entity.usablemoney}</if>
+      <if test="entity.waitactivemoney != null and entity.waitactivemoney != ''">,#{entity.waitactivemoney}</if>
+      <if test="entity.returnmoney != null and entity.returnmoney != ''">,#{entity.returnmoney}</if>
+      <if test="entity.registermoney != null and entity.registermoney != ''">,#{entity.registermoney}</if>
+      <if test="entity.investmoney != null and entity.investmoney != ''">,#{entity.investmoney}</if>
+      <if test="entity.rapnum != null and entity.rapnum != ''">,#{entity.rapnum}</if>
+      <if test="entity.level != null">,#{entity.level}</if>
+      <if test="entity.logintime != null and entity.logintime != ''">,#{entity.logintime}</if>
+      <if test="entity.headimage != null and entity.headimage != ''">,#{entity.headimage}</if>
+      <if test="entity.loginnum != null">,#{entity.loginnum}</if>
+      <if test="entity.inviterid != null">,#{entity.inviterid}</if>
+      <if test="entity.channelid != null">,#{entity.channelid}</if>
+      <if test="entity.status != null">,#{entity.status}</if>
+      <if test="entity.remark != null and entity.remark != ''">,#{entity.remark}</if>
+    </trim>
+  </sql>
+
+  <sql id="sql_column_list">
+    id
+    ,creattime
+    ,name
+    ,phone
+    ,email
+    ,passwd
+    ,summoney
+    ,fetchmoney
+    ,coldmoney
+    ,usablemoney
+    ,waitactivemoney
+    ,returnmoney
+    ,registermoney
+    ,investmoney
+    ,rapnum
+    ,level
+    ,logintime
+    ,headImage
+    ,loginnum
+    ,inviterid
+    ,channelid
+    ,status
+    ,remark
+  </sql>
+
+  <sql id="sql_update_set">
+    <trim prefix="SET" prefixOverrides=",">
+      <if test="entity != null">
+        <if test="entity.id != null">,id = #{entity.id}</if>
+        <if test="entity.creattime != null and entity.creattime != ''">,creattime = #{entity.creattime}</if>
+        <if test="entity.name != null and entity.name != ''">,name = #{entity.name}</if>
+        <if test="entity.phone != null and entity.phone != ''">,phone = #{entity.phone}</if>
+        <if test="entity.email != null and entity.email != ''">,email = #{entity.email}</if>
+        <if test="entity.passwd != null and entity.passwd != ''">,passwd = #{entity.passwd}</if>
+        <if test="entity.summoney != null and entity.summoney != ''">,summoney = #{entity.summoney}</if>
+        <if test="entity.fetchmoney != null and entity.fetchmoney != ''">,fetchmoney = #{entity.fetchmoney}</if>
+        <if test="entity.coldmoney != null and entity.coldmoney != ''">,coldmoney = #{entity.coldmoney}</if>
+        <if test="entity.usablemoney != null and entity.usablemoney != ''">,usablemoney = #{entity.usablemoney}</if>
+        <if test="entity.waitactivemoney != null and entity.waitactivemoney != ''">,waitactivemoney = #{entity.waitactivemoney}</if>
+        <if test="entity.returnmoney != null and entity.returnmoney != ''">,returnmoney = #{entity.returnmoney}</if>
+        <if test="entity.registermoney != null and entity.registermoney != ''">,registermoney = #{entity.registermoney}</if>
+        <if test="entity.investmoney != null and entity.investmoney != ''">,investmoney = #{entity.investmoney}</if>
+        <if test="entity.rapnum != null and entity.rapnum != ''">,rapnum = #{entity.rapnum}</if>
+        <if test="entity.level != null">,level = #{entity.level}</if>
+        <if test="entity.logintime != null and entity.logintime != ''">,logintime = #{entity.logintime}</if>
+        <if test="entity.headimage != null and entity.headimage != ''">,headImage = #{entity.headimage}</if>
+        <if test="entity.loginnum != null">,loginnum = #{entity.loginnum}</if>
+        <if test="entity.inviterid != null">,inviterid = #{entity.inviterid}</if>
+        <if test="entity.channelid != null">,channelid = #{entity.channelid}</if>
+        <if test="entity.status != null">,status = #{entity.status}</if>
+        <if test="entity.remark != null and entity.remark != ''">,remark = #{entity.remark}</if>
+      </if>
+    </trim>
+  </sql>
+
+  <sql id="sql_force_update_set">
+    <trim prefix="SET" prefixOverrides=",">
+      <if test="_parameter.containsKey('entity_id')">,id = #{entity_id, jdbcType=INTEGER}</if>
+      <if test="_parameter.containsKey('entity_creattime')">,creattime = #{entity_creattime, jdbcType=VARCHAR}</if>
+      <if test="_parameter.containsKey('entity_name')">,name = #{entity_name, jdbcType=VARCHAR}</if>
+      <if test="_parameter.containsKey('entity_phone')">,phone = #{entity_phone, jdbcType=VARCHAR}</if>
+      <if test="_parameter.containsKey('entity_email')">,email = #{entity_email, jdbcType=VARCHAR}</if>
+      <if test="_parameter.containsKey('entity_passwd')">,passwd = #{entity_passwd, jdbcType=VARCHAR}</if>
+      <if test="_parameter.containsKey('entity_summoney')">,summoney = #{entity_summoney, jdbcType=VARCHAR}</if>
+      <if test="_parameter.containsKey('entity_fetchmoney')">,fetchmoney = #{entity_fetchmoney, jdbcType=VARCHAR}</if>
+      <if test="_parameter.containsKey('entity_coldmoney')">,coldmoney = #{entity_coldmoney, jdbcType=VARCHAR}</if>
+      <if test="_parameter.containsKey('entity_usablemoney')">,usablemoney = #{entity_usablemoney, jdbcType=VARCHAR}</if>
+      <if test="_parameter.containsKey('entity_waitactivemoney')">,waitactivemoney = #{entity_waitactivemoney, jdbcType=VARCHAR}</if>
+      <if test="_parameter.containsKey('entity_returnmoney')">,returnmoney = #{entity_returnmoney, jdbcType=VARCHAR}</if>
+      <if test="_parameter.containsKey('entity_registermoney')">,registermoney = #{entity_registermoney, jdbcType=VARCHAR}</if>
+      <if test="_parameter.containsKey('entity_investmoney')">,investmoney = #{entity_investmoney, jdbcType=VARCHAR}</if>
+      <if test="_parameter.containsKey('entity_rapnum')">,rapnum = #{entity_rapnum, jdbcType=VARCHAR}</if>
+      <if test="_parameter.containsKey('entity_level')">,level = #{entity_level, jdbcType=INTEGER}</if>
+      <if test="_parameter.containsKey('entity_logintime')">,logintime = #{entity_logintime, jdbcType=VARCHAR}</if>
+      <if test="_parameter.containsKey('entity_headimage')">,headImage = #{entity_headimage, jdbcType=VARCHAR}</if>
+      <if test="_parameter.containsKey('entity_loginnum')">,loginnum = #{entity_loginnum, jdbcType=INTEGER}</if>
+      <if test="_parameter.containsKey('entity_inviterid')">,inviterid = #{entity_inviterid, jdbcType=INTEGER}</if>
+      <if test="_parameter.containsKey('entity_channelid')">,channelid = #{entity_channelid, jdbcType=INTEGER}</if>
+      <if test="_parameter.containsKey('entity_status')">,status = #{entity_status, jdbcType=INTEGER}</if>
+      <if test="_parameter.containsKey('entity_remark')">,remark = #{entity_remark, jdbcType=VARCHAR}</if>
+    </trim>
+  </sql>
+
+  <sql id="sql_condition">
+    <if test="condition != null">
+      <if test="condition.id != null">AND id = #{condition.id}</if>
+      <if test="condition.creattime != null and condition.creattime != ''">AND creattime = #{condition.creattime}</if>
+      <if test="condition.name != null and condition.name != ''">AND name = #{condition.name}</if>
+      <if test="condition.phone != null and condition.phone != ''">AND phone = #{condition.phone}</if>
+      <if test="condition.email != null and condition.email != ''">AND email = #{condition.email}</if>
+      <if test="condition.passwd != null and condition.passwd != ''">AND passwd = #{condition.passwd}</if>
+      <if test="condition.summoney != null and condition.summoney != ''">AND summoney = #{condition.summoney}</if>
+      <if test="condition.fetchmoney != null and condition.fetchmoney != ''">AND fetchmoney = #{condition.fetchmoney}</if>
+      <if test="condition.coldmoney != null and condition.coldmoney != ''">AND coldmoney = #{condition.coldmoney}</if>
+      <if test="condition.usablemoney != null and condition.usablemoney != ''">AND usablemoney = #{condition.usablemoney}</if>
+      <if test="condition.waitactivemoney != null and condition.waitactivemoney != ''">AND waitactivemoney = #{condition.waitactivemoney}</if>
+      <if test="condition.returnmoney != null and condition.returnmoney != ''">AND returnmoney = #{condition.returnmoney}</if>
+      <if test="condition.registermoney != null and condition.registermoney != ''">AND registermoney = #{condition.registermoney}</if>
+      <if test="condition.investmoney != null and condition.investmoney != ''">AND investmoney = #{condition.investmoney}</if>
+      <if test="condition.rapnum != null and condition.rapnum != ''">AND rapnum = #{condition.rapnum}</if>
+      <if test="condition.level != null">AND level = #{condition.level}</if>
+      <if test="condition.logintime != null and condition.logintime != ''">AND logintime = #{condition.logintime}</if>
+      <if test="condition.headimage != null and condition.headimage != ''">AND headImage = #{condition.headimage}</if>
+      <if test="condition.loginnum != null">AND loginnum = #{condition.loginnum}</if>
+      <if test="condition.inviterid != null">AND inviterid = #{condition.inviterid}</if>
+      <if test="condition.channelid != null">AND channelid = #{condition.channelid}</if>
+      <if test="condition.status != null">AND status = #{condition.status}</if>
+      <if test="condition.remark != null and condition.remark != ''">AND remark = #{condition.remark}</if>
+      <if test="!condition.expressionChainList.empty">
+        AND
+        <foreach collection="condition.expressionChainList" item="expressionChain" separator="OR">
+          <if test="!expressionChain.expressionList.empty">
+            <foreach collection="expressionChain.expressionList" item="expression" separator="AND">
+              <choose>
+                <when test="expression.type == 0">
+                  ${expression.column} ${expression.operator}
+                </when>
+                <when test="expression.type == 1">
+                  ${expression.column} ${expression.operator} #{expression.value}
+                </when>
+                <when test="expression.type == 2">
+                  ${expression.column} ${expression.operator} #{expression.value} AND #{expression.value1}
+                </when>
+                <when test="expression.type == 3">
+                  ${expression.column} ${expression.operator}
+                  <foreach collection="expression.values" item="value" open="(" separator="," close=")">
+                    #{value}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </if>
+        </foreach>
+      </if>
+    </if>
+  </sql>
+
+  <sql id="sql_pagination_start">
+  <![CDATA[
+  ]]>
+  </sql>
+
+  <sql id="sql_pagination_end">
+  <![CDATA[
+    LIMIT #{offset}, #{limit}
+  ]]>
+  </sql>
+
+  <insert id="insert" parameterType="java.util.Map">
+    <selectKey keyProperty="entity.id" resultType="java.lang.Integer" order="AFTER">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    INSERT INTO ot_user (
+      <include refid="sql_insert_column_list" />
+    ) VALUES (
+      <include refid="sql_insert_property_list" />
+    )
+  </insert>
+
+  <select id="get" parameterType="java.util.Map" resultMap="user">
+    SELECT
+      <include refid="sql_column_list" />
+    FROM ot_user
+    <trim prefix="WHERE" prefixOverrides="AND">
+      <include refid="sql_condition" />
+    </trim>
+  </select>
+
+  <select id="getById" parameterType="java.util.Map" resultMap="user">
+    SELECT
+      <include refid="sql_column_list" />
+    FROM ot_user
+    WHERE id = #{id}
+  </select>
+
+  <select id="find" parameterType="java.util.Map" resultMap="user">
+    <if test="offset != null">
+      <include refid="sql_pagination_start" />
+    </if>
+    SELECT
+      <include refid="sql_column_list" />
+    FROM ot_user
+    <trim prefix="WHERE" prefixOverrides="AND">
+      <include refid="sql_condition" />
+    </trim>
+    <if test="orderBy != null">
+      ORDER BY ${orderBy}
+    </if>
+    <if test="offset != null">
+      <include refid="sql_pagination_end" />
+    </if>
+  </select>
+
+  <select id="findByIdList" parameterType="java.util.Map" resultMap="user">
+    SELECT
+      <include refid="sql_column_list" />
+    FROM ot_user
+    WHERE id IN
+    <foreach collection="idList" item="id" open="(" separator="," close=")">
+      #{id}
+    </foreach>
+    <include refid="sql_condition" />
+    <if test="orderBy != null">
+      ORDER BY ${orderBy}
+    </if>
+  </select>
+
+  <select id="count" parameterType="java.util.Map" resultType="java.lang.Integer">
+    SELECT count(${count_column}) AS count_ FROM ot_user
+    <trim prefix="WHERE" prefixOverrides="AND">
+      <include refid="sql_condition" />
+    </trim>
+  </select>
+
+  <select id="aggregate" parameterType="java.util.Map" resultType="java.util.HashMap">
+    SELECT ${aggregate_sql} FROM ot_user
+    <trim prefix="WHERE" prefixOverrides="AND">
+      <include refid="sql_condition" />
+    </trim>
+  </select>
+
+  <update id="update" parameterType="java.util.Map">
+    UPDATE ot_user
+    <include refid="sql_update_set" />
+    <trim prefix="WHERE" prefixOverrides="AND">
+      <include refid="sql_condition" />
+    </trim>
+  </update>
+
+  <update id="updateById" parameterType="java.util.Map">
+    UPDATE ot_user
+    <include refid="sql_update_set" />
+    WHERE id = #{id}
+  </update>
+
+  <update id="updateByIdList" parameterType="java.util.Map">
+    UPDATE ot_user
+    <include refid="sql_update_set" />
+    WHERE id IN
+    <foreach collection="idList" item="id" open="(" separator="," close=")">
+      #{id}
+    </foreach>
+    <include refid="sql_condition" />
+  </update>
+
+  <update id="forceUpdate" parameterType="java.util.Map">
+    UPDATE ot_user
+    <include refid="sql_force_update_set" />
+    <trim prefix="WHERE" prefixOverrides="AND">
+      <include refid="sql_condition" />
+    </trim>
+  </update>
+
+  <update id="forceUpdateById" parameterType="java.util.Map">
+    UPDATE ot_user
+    <include refid="sql_force_update_set" />
+    WHERE id = #{id}
+  </update>
+
+  <update id="forceUpdateByIdList" parameterType="java.util.Map">
+    UPDATE ot_user
+    <include refid="sql_force_update_set" />
+    WHERE id IN
+    <foreach collection="idList" item="id" open="(" separator="," close=")">
+      #{id}
+    </foreach>
+    <include refid="sql_condition" />
+  </update>
+
+  <delete id="remove" parameterType="java.util.Map">
+    DELETE FROM ot_user
+    <trim prefix="WHERE" prefixOverrides="AND">
+      <include refid="sql_condition" />
+    </trim>
+  </delete>
+
+  <delete id="removeById" parameterType="java.util.Map">
+    DELETE FROM ot_user
+    WHERE id = #{id}
+  </delete>
+
+  <delete id="removeByIdList" parameterType="java.util.Map">
+    DELETE FROM ot_user
+    WHERE id IN
+    <foreach collection="idList" item="id" open="(" separator="," close=")">
+      #{id}
+    </foreach>
+    <include refid="sql_condition" />
+  </delete>
+</mapper>
